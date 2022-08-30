@@ -1,0 +1,30 @@
+INSTRUCTIONS: PLEASE READ CAREFULLY
+
+1st step: Go to stripe.com and obtain your LIVE secret API key as well as the Price ID for the subscription plan you want to use.
+Then use those details to fill the fields: STRIPE_KEY and PRICE_ID in the .env file Stripe Dashboard search is a
+great tool if you get stuck.
+
+2nd step OPTIONAL: If you want, replace CANCEL_URL and SUCCESS_URL in the .env file with urls you want your customers to be
+redirected to after cancelling or subscribing. I have set them up as your home page.
+
+3rd step: Deploy your application to the cloud. I recommend the site railway.app. If you want, use my referral link
+as it will help me a lot and give you some free credits! https://railway.app?referralCode=d-cKM4 Should you need help with
+deployment, please contact me for free guidance or for deployment services for a fee.
+
+4th step: Obtain your deployment link from railway and go to https://dashboard.stripe.com/webhooks to set up webhooks for your application.
+The page the API listens for webhooks is "/webhooks". So the url you should use is: YOUR_DEPLOYMENT_LINK/webhooks
+The webhooks the application will use are: payment_method.attached. Should you encounter any issues with the webhooks, please contact me.
+Ill provide you with a solution for free.
+
+5th step: Once you have set up the webhook url, obtain its secret key from the stripe dashboard.
+Then use that key to fill the field: WEBHOOK_SECRET in the .env file.
+
+6th step: Redeploy your application to the cloud.
+
+NOTE: Your application files will be available in my personal cloud storage for 90 days
+in case you need additional features in the future.
+
+
+How to request:
+
+GET / - returns the checkout url in a json object
