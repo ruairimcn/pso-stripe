@@ -11,7 +11,7 @@ route.post("/", async (req, res) => {
   try {
     const webhookSecret = process.env.STRIPE_WEBHOOK_TOKEN;
     // Verify the webhook secret existence
-    if (!webhookSecret || !process.env.PRICE_ID) {
+    if (!webhookSecret || !process.env.PRICE_ID_6TH_CLASS_MATHS) {
       throw new Error("Stripe webhook secret or price id not found");
     }
     //obtain and verify the webhook signature
@@ -45,7 +45,7 @@ route.post("/", async (req, res) => {
       //create the subscription
       const sub = await stripe.subscriptions.create({
         customer: event.customer,
-        items: [{ price: process.env.PRICE_ID, quantity: 1 }],
+        items: [{ price: process.env.PRICE_ID_6TH_CLASS_MATHS, quantity: 1 }],
         default_payment_method: event.id,
         cancel_at: (cancel_timestamp - (cancel_timestamp % 1000)) / 1000,
         billing_cycle_anchor: tmstp + 30,
